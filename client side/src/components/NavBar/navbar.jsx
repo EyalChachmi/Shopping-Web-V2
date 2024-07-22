@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="wrapper">
         <div className="left">
           <div className="item">
-            <img src="../../savedImages/israel.png" alt="yess" />
+            <img class="flag_of_israel"src={img} />
             <KeyboardDoubleArrowDownIcon />
           </div>
           <div className="item">

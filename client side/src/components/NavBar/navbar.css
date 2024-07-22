@@ -12,7 +12,12 @@
         align-items: center;
         font-size: 18px;
       }
-  
+      .flag_of_israel { 
+        width: 25px;
+        height: 25px;
+        object-fit: scale-down;
+        margin-right: 5px;
+  }
       .left {
         display: flex;
         align-items: center;
