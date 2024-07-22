@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import MainHome from "./Home/mainHome";
 import Products from "./Products/products";
-import Product from "./Products/products";
+import Product from "./Products/product";
 import Navbar from "./components/NavBar/navbar";
 import "./App.css"
 const Comps=()=>{
