@@ -1,8 +1,14 @@
-import React from 'react'
-
+import React from 'react';
+import './mainHome.css';
+import { Slide } from '@mui/material';
+import Slider from '../components/Slider/slider'
+import OnTheTable from '../components/onTheTable/onTheTable';
 const mainHome = () => {
   return (
-    <div>mainHome</div>
+    <div className='mainHome'>mainHome
+    <Slider/>
+    <OnTheTable/>
+    </div>
   )
 }
 

@@ -6,13 +6,14 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import "./navbar.css"
 import { Link } from "react-router-dom";
+import img from "../../savedImages/israel.png"
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="wrapper">
         <div className="left">
           <div className="item">
-            <img src="/savedImages/israel.png" alt="yess" />
+            <img src="../../savedImages/israel.png" alt="yess" />
             <KeyboardDoubleArrowDownIcon />
           </div>
           <div className="item">

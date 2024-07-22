@@ -4,7 +4,7 @@ import {
   Route,
   Outlet
 } from "react-router-dom";
-import mainHome from "./Home/mainHome";
+import MainHome from "./Home/mainHome";
 import Products from "./Products/products";
 import Product from "./Products/products";
 import Navbar from "./components/NavBar/navbar";
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <mainHome />,
+        element: <MainHome/>,
       },
       {
         path: "/products/:id",

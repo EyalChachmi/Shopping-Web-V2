@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./product.css"
 const product = () => {
   return (
-    <div>product</div>
+    <div className='product'>product</div>
   )
 }
 
