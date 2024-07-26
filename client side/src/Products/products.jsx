@@ -2,11 +2,19 @@ import React from 'react'
 import "./products.css"
 import List from '../components/List/List'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios';
+
+
 const products = () => {
+
+  
   const param =parseInt(useParams().id);
   const [maxPrice,setMaxPrice]=useState(1000);
   const [sort,setSort]=useState(null);
+
+
+
   console.log(param)
   return (
     <div className='products'>

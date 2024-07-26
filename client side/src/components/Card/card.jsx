@@ -9,7 +9,7 @@ const Card = ({ item }) => {
       <div className="card">
         <div className="image">
           <img
-            src={item.img}
+            src={item.image}
             className="mainImg"
           />
           <img
@@ -22,8 +22,7 @@ const Card = ({ item }) => {
         </div>
         <h2>{item.title}</h2>
         <div className="prices">
-          <h3>${item.oldPrice}</h3>
-          <h3>${item.newPrice}</h3>
+          <h3>${item.price}</h3>
         </div>
       </div>
     </Link>

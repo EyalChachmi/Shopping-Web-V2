@@ -11,13 +11,19 @@
         
         .images{
             flex:1;
-
+            
             img{
                 width: 100;
                 height: 150px;
                 object-fit: cover;
                 cursor:pointer;
                 margin-bottom:10px;
+            }
+            .smallImg1{
+                filter:invert(100%);
+            }
+            .smallImg2{
+                  transform: scaleX(-1);
             }
         }
         .mainImg{

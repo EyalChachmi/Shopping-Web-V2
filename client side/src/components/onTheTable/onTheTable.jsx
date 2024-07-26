@@ -1,42 +1,44 @@
-import React from 'react'
-import "./onTheTable.css"
-import Card from '../Card/card'
-const OnTheTable = () => {
-    const sampleData=[
-        {
-            id: 1,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            oldPrice: 19,
-            newPrice: 12,
-        },
-        {
-            id: 2,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            oldPrice: 12,
-            newPrice: 0
-        },
+import React, { useEffect, useState } from 'react';
+import "./onTheTable.css";
+import Card from '../Card/card';
+import axios from 'axios';
 
-    ]
+const OnTheTable = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        const shuffledArr = shuffleArray(response.data);
+        setProducts(shuffledArr);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const shuffleArray = (arr) =>{
+    return arr.sort(() => Math.random() - 0.5);
+  };
+
   return (
-    <div className='onTheTable'>OnTheTable
-     <div className="top">
-        <h1>featured products</h1>
+    <div className='onTheTable'>
+      <div className="top">
+        <h1>Featured Products</h1>
         <p>
-          Here are some trending products on our menu!
+          Here are some featured products on our shop!
         </p>
-        </div>
-        <div className='bot'>
-            {sampleData.map(item=>(
-                <Card item={item} key={item.id}/>
-            ))}
-        </div>
+      </div>
+      <div className='bot'>
+        {products.slice(0, 5).map(item => (
+          <Card item={item} key={item.id} />
+        ))}
+      </div>
     </div>
-    
-  )
+  );
 }
 
-export default OnTheTable
+export default OnTheTable;
