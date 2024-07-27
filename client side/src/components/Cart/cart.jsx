@@ -45,6 +45,8 @@ const Cart = () => {
             description: "This a sample text. This a sample text. This a sample text. This a sample text. This a sample text. "
         }
     ]
+
+    
   return (
     <div className='cart'>
         <h1>Products inside the cart</h1>
