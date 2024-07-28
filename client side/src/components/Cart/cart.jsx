@@ -2,6 +2,8 @@ import { Description } from '@mui/icons-material'
 import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import './cart.css'
+import {useSelector} from "react-redux";
+
 const Cart = () => {
     const sampleData=[
         {
@@ -46,11 +48,13 @@ const Cart = () => {
         }
     ]
 
+    const products = useSelector(state=>state.cart.products)
+
     
   return (
     <div className='cart'>
         <h1>Products inside the cart</h1>
-        {sampleData?.map((item) => (
+        {products?.map((item) => (
             <div className='item' key={item.id}>
                 <img src={item.img}/>
                 <div className='details'>

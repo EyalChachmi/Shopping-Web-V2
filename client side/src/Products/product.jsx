@@ -5,6 +5,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import axios from 'axios';
+import {useDispatch} from "react-redux";
+import {addToCart} from '../redux/cartReducer'
 
 const Product = () => {
   const { id } = useParams();
@@ -12,6 +14,8 @@ const Product = () => {
   const [selectedImg, setSelectedImg] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [item, setItem] = useState({});
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +49,14 @@ const Product = () => {
           {quantity}
           <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
         </div>
-        <button className="add">
+        <button className="add" onClick={() => dispatch(addToCart({
+          id:item.id,
+          title:item.title,
+          desc:item.description,
+          price:item.price,
+          img:item.image,
+          quantity,
+        }))}>
           <AddShoppingCartIcon />ADD TO CART
         </button>
         <div className="links">
