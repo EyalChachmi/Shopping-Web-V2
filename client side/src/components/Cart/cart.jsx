@@ -3,53 +3,21 @@ import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import './cart.css'
 import {useSelector} from "react-redux";
+import {removeItem, resetCart} from "../../redux/cartReducer"
+import {useDispatch} from "react-redux";
 
 const Cart = () => {
-    const sampleData=[
-        {
-            id: 1,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            price: 19,
-            description: "This a sample text. This a sample text. This a sample text. This a sample text. This a sample text. "
-        },
-        {
-            id: 2,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            price: 19,
-            description: "This a sample text. This a sample text. This a sample text. This a sample text. This a sample text. "
-        },
-        {
-            id: 3,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            price: 11,
-            description: "This a sample text. This a sample text. This a sample text. This a sample text. This a sample text. "
-        },
-        {
-            id: 4,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            price: 12,
-            description: "This a sample text. This a sample text. This a sample text. This a sample text. This a sample text. "
-        },
-        {
-            id: 5,
-            img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            title: "sleeves",
-            price: 14,
-            description: "This a sample text. This a sample text. This a sample text. This a sample text. This a sample text. "
-        }
-    ]
+    
 
-    const products = useSelector(state=>state.cart.products)
+    const products = useSelector((state)=>state.cart.products);
+    const dispatch = useDispatch();
 
+    const totalPrice = () => {
+        let total = 0;
+        products.forEach((item) => total += item.quantity * item.price);
+        return total.toFixed(2);
+    };
+    
     
   return (
     <div className='cart'>
@@ -60,18 +28,18 @@ const Cart = () => {
                 <div className='details'>
                 <h1> {item.title}</h1>
                 <p>{item.description?.substring(0,100)}</p>
-                <div className='price'> 1 x ${item.price} </div>
+                <div className='price'> {item.quantity} x ${item.price} </div>
                 </div>
-                <DeleteIcon className='delete'/>
+                <DeleteIcon className='delete' onClick={() => dispatch(removeItem(item.id))}/>
                 </div>
                 
         ))}
         <div className='total'>
             <span>SUBTOTAL</span>
-            <spam>$69</spam>
+            <spam>${totalPrice()}</spam>
         </div>
         <button>Checkout</button>
-        <span className='reset'>Reset Cart</span>
+        <span className='reset' onClick={() => dispatch(resetCart())}>Reset Cart</span>
         </div>
   )
 }
