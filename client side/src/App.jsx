@@ -9,6 +9,10 @@ import Products from "./Products/products";
 import Product from "./Products/product";
 import Navbar from "./components/NavBar/navbar";
 import "./App.css"
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+
+
+
 const Comps=()=>{
   return (
     <div className="app">
@@ -34,6 +38,10 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <Product />,
       },
+      {
+        path: "/checkout",
+        element: <CheckoutPage/>
+      }
     ],
   },
 ]);
