@@ -40,7 +40,10 @@
   
           .cart {
             position: relative;
-  
+            right: 0px;
+            top:0px;
+            padding:0px;
+        
             span {
               font-size: 12px;
               width: 20px;

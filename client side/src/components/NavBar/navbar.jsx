@@ -54,10 +54,10 @@ const Navbar = () => {
             <SearchIcon/>
             <PersonOutlineOutlinedIcon/>
             <FavoriteBorderOutlinedIcon/>
-            <div className='cart' onClick={()=>setOpen(!open)}>
+            <span className='cart' onClick={()=>setOpen(!open)}>
               <ShoppingCartOutlinedIcon/>
               <span>{products.length}</span>
-            </div>
+            </span>
           </div>
         </div>
       </div>
