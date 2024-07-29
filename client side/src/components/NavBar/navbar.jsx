@@ -22,7 +22,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar">
+    <div className="navbarlocal">
       <div className="wrapper">
         <div className="left">
           <div className="item">
