@@ -5,7 +5,7 @@ import Slider from '../components/Slider/slider'
 import OnTheTable from '../components/onTheTable/onTheTable';
 const mainHome = () => {
   return (
-    <div className='mainHome'>mainHome
+    <div className='mainHome'>
     <Slider/>
     <OnTheTable/>
     </div>
