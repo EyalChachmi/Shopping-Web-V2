@@ -6,7 +6,7 @@ const Card = ({ item }) => {
   console.log(item);
   return (
     <Link className="link" to={`/product/${item.id}`}>
-      <div className="card">
+      <div className="cardLocal">
         <div className="image">
           <img
             src={item.image}

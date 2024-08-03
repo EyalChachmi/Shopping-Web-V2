@@ -5,6 +5,7 @@ import './cart.css'
 import {useSelector} from "react-redux";
 import {removeItem, resetCart} from "../../redux/cartReducer"
 import {useDispatch} from "react-redux";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     
@@ -38,7 +39,9 @@ const Cart = () => {
             <span>SUBTOTAL</span>
             <spam>${totalPrice()}</spam>
         </div>
-        <button>Checkout</button>
+        <Link className="link" to={`/checkout`}>
+            <button>Checkout</button>
+        </Link>
         <span className='reset' onClick={() => dispatch(resetCart())}>Reset Cart</span>
         </div>
   )
