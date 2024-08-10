@@ -1,0 +1,9 @@
+.video-player{
+    margin-top: 100px;
+    margin-left: 300px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+}

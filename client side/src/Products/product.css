@@ -28,11 +28,14 @@
         }
         .mainImg{
             flex:5;
+            outline: 2px solid #000;
+            height: fit-content;
+
 
             img{
                 width:100%;
-                max-height: 800px;
-                object-fit:cover;
+                height:100%;
+                object-fit:contain;
             }
         }
     }
