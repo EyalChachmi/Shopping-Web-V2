@@ -20,7 +20,7 @@ const Card = ({ item }) => {
             className="secondImg"
           />
         </div>
-        <h2>{item.title}</h2>
+        <h2 className="cardTitle">{item.title}</h2>
         <div className="prices">
           <h3>${item.price}</h3>
         </div>
