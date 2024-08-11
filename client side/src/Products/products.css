@@ -7,6 +7,13 @@
       position: sticky;
       height: 100%;
       top: 50px;
+
+      .product-search{
+        margin-bottom: 30px;
+        h2{
+          margin-bottom: 20px;
+        }
+      }
   
       .filterItem{
         margin-bottom: 30px;

@@ -16,6 +16,7 @@ const Products = () => {
   ]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [items, setItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -29,6 +30,11 @@ const Products = () => {
         };
         url = `https://fakestoreapi.com/products/category/${categoryMap[selectedCategory]}`;
       }
+
+      if (searchQuery) {
+        
+      }
+
       console.log(`Fetching data from URL: ${url}`); // Debugging line
       try {
         const response = await axios.get(url);
@@ -45,10 +51,22 @@ const Products = () => {
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
   };
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
   return (
     <div className='products'>
       <div className='left'>
+      <div className='product-search'>
+        <h2>Search Product</h2>
+        <input 
+            type="text" 
+            placeholder="Search products..." 
+            value={searchQuery} 
+            onChange={handleSearchChange} 
+          />
+      </div>
         <div className='filterItem'>
           <h2>Product Categories</h2>
           {categories.map((category, index) => (
@@ -104,7 +122,7 @@ const Products = () => {
       </div>
       <div className='right'>
         <img className="catImage" src="../savedImages/israel.png" alt="" />
-        <List items={items} maxPrice={maxPrice} sort={sort} />
+        <List items={items} maxPrice={maxPrice} sort={sort} searchQuery={searchQuery} />
       </div>
     </div>
   );
