@@ -1,22 +1,11 @@
 import mongoose from "mongoose";
 
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/shopping-user-db", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => {
-    console.log("MongoDB connected");
-})
-.catch((error) => {
-    console.log('Failed to connect to MongoDB', error);
-});
-
 // Define the schema
-const newSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true // Ensures no duplicate emails
     },
     password: {
         type: String,
@@ -25,7 +14,6 @@ const newSchema = new mongoose.Schema({
 });
 
 // Create the model
-const collection = mongoose.model("Collection", newSchema).createCollection();
+const User = mongoose.model("User", userSchema);
 
-// Export the model
-export default collection;
+export default User;
