@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import {
+    MDBContainer,
+  } from "mdb-react-ui-kit";
 
 function Sign() {
     const history = useNavigate();
@@ -40,27 +43,31 @@ function Sign() {
     }
 
     return (
-        <div className="login">
-            {isLoggedIn ? (
-                <>
-                    <h1>Welcome, {email}</h1>
-                    <button onClick={logout}>Logout</button>
-                </>
-            ) : (
-                <>
-                    <h1>Signup</h1>
-                    <form action="POST">
-                        <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
-                        <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
-                        <input type="submit" onClick={submit} />
-                    </form>
-                    <br />
-                    <p>OR</p>
-                    <br />
-                    <Link to="/login">Login Page</Link>
-                </>
-            )}
-        </div>
+        <MDBContainer fluid className="py-5 gradient-custom">
+            <div className="login-container">
+                <div className="login">
+                    {isLoggedIn ? (
+                        <>
+                            <h1>Welcome, {email}</h1>
+                            <button onClick={logout}>Logout</button>
+                        </>
+                    ) : (
+                        <>
+                            <h1>Signup</h1>
+                            <form action="POST">
+                                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
+                                <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
+                                <input type="submit" onClick={submit} />
+                            </form>
+                            <br />
+                            <p>OR</p>
+                            <br />
+                            <Link to="/login">Login Page</Link>
+                        </>
+                    )}
+                </div>
+            </div>
+        </MDBContainer>
     );
 }
 
