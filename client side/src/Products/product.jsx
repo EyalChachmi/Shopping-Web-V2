@@ -5,8 +5,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import axios from 'axios';
-import {useDispatch} from "react-redux";
-import {addToCart} from '../redux/cartReducer'
+import { useDispatch } from "react-redux";
+import { addToCart } from '../redux/cartReducer';
 
 const Product = () => {
   const { id } = useParams();
@@ -14,8 +14,9 @@ const Product = () => {
   const [selectedImg, setSelectedImg] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [item, setItem] = useState({});
+  const [addedToCart, setAddedToCart] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +29,22 @@ const Product = () => {
     };
     fetchData();
   }, [id]);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      id: item.id,
+      title: item.title,
+      desc: item.description,
+      price: item.price,
+      img: item.image,
+      quantity,
+    }));
+    setAddedToCart(true);
+
+    setTimeout(() => {
+      setAddedToCart(false);
+    }, 3000);
+  };
 
   return (
     <div className='product'>
@@ -49,27 +66,13 @@ const Product = () => {
           {quantity}
           <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
         </div>
-        <button className="add" onClick={() => dispatch(addToCart({
-          id:item.id,
-          title:item.title,
-          desc:item.description,
-          price:item.price,
-          img:item.image,
-          quantity,
-        }))}>
+        <button className="add" onClick={handleAddToCart}>
           <AddShoppingCartIcon />ADD TO CART
         </button>
-        <div className="links">
-          <div className="item">
-            <FavoriteBorderIcon />ADD TO WISHLIST
-          </div>
-          <div className="item">
-            <AccountBalanceIcon />ADD TO COMPARE
-          </div>
-        </div>
 
+        {addedToCart && <div className="cart-message">Product added to cart!</div>} {}
         <div className="info">
-          <span style={{textTransform: 'uppercase'}}>Product Type: {item.category}</span>
+          <span style={{ textTransform: 'uppercase' }}>Product Type: {item.category}</span>
         </div>
         <hr />
         <div className="info">
