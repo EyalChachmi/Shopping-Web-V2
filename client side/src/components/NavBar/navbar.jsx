@@ -43,7 +43,7 @@ const Navbar = () => {
             <KeyboardDoubleArrowDownIcon />
           </div>
           <div className="item linkEffect linkEffect--bgLeftToRight">
-            <span>Shekel</span>
+            <span>Dollar</span>
             <KeyboardDoubleArrowDownIcon />
           </div>
           <div className="item linkEffect linkEffect--bgLeftToRight">
