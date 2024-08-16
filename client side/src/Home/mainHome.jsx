@@ -9,7 +9,7 @@ const mainHome = () => {
     <div className='mainHome'>
     <Slider/>
     <OnTheTable/>
-    <ReactPlayer className="video-player" url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' width="1280px" height="720px" light="true" controls="true" />
+    <ReactPlayer className="video-player" url='https://youtu.be/R6Meet7Fm2Y' width="1280px" height="720px" light="true" controls="true" />
     </div>
   )
 }
